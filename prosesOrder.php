@@ -38,10 +38,32 @@ if (isset($_GET['aksi']) && $_GET['aksi'] === 'tambah_order') {
             }
 
             $koneksi->commit();
-            echo "<script>
-    alert('Pesanan berhasil! ID Order: $id_order');
-    window.location.href = 'index.php';
-</script>";
+            echo '
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+<div class="modal fade" id="tambahModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">Berhasil!</h5>
+      </div>
+      <div class="modal-body">
+        Pesanan berhasil! ID Order: `$id_order`);
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const tambahModal = new bootstrap.Modal(document.getElementById("tambahModal"));
+tambahModal.show();
+setTimeout(() => {
+    tambahModal.hide();
+    window.location.href="index.php";
+}, 2000);
+</script>
+';
 
 
         } catch (Exception $e) {

@@ -195,6 +195,32 @@ setTimeout(() => {
             session_start();
             $_SESSION['ADMIN'] = $result;
             // status yang diberikan 
+            echo '
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+<div class="modal fade" id="hapusModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">Berhasil!</h5>
+      </div>
+      <div class="modal-body">
+        Login Berhasil!
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const hapusModal = new bootstrap.Modal(document.getElementById("hapusModal"));
+hapusModal.show();
+setTimeout(() => {
+    hapusModal.hide();
+    window.location="../datamenu.php";
+}, 2000);
+</script>
+';
             
         }
     }
